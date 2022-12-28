@@ -32,6 +32,20 @@ public class TestSampleDocEnricher extends AbstractJsonWriterTest.Local<Document
         DocumentModel document = session.createDocumentModel("/", "test", "File");
         document = session.createDocument(document);
         JsonAssert json = jsonAssert(document, CtxBuilder.enrichDoc("sample").get());
+    }
+
+    @Test
+    public void testCustomDoc() throws IOException {
+        DocumentModel referencedDocument = session.createDocumentModel("/", "ref", "ReferencedDocument");
+        referencedDocument.setPropertyValue("rd:name", "referenced document");
+        referencedDocument = session.createDocument(referencedDocument);
+
+        DocumentModel document = session.createDocumentModel("/", "test", "CustomDocument");
+        document.setPropertyValue("dc:description", "custom document");
+        document.setPropertyValue("cd:referencedDocument", referencedDocument.getId());
+        document = session.createDocument(document);
+
+        JsonAssert json = jsonAssert(document, CtxBuilder.enrichDoc("sample2").get());
         System.out.println(json);
     }
 }

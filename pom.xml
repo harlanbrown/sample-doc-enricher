@@ -3,8 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.nuxeo</groupId>
-    <artifactId>nuxeo-parent</artifactId>
-    <version>2021.26.5</version>
+    <artifactId>nuxeo-addons-parent</artifactId>
+    <version>10.10-HF69</version>
   </parent>
   <artifactId>sample-doc-enricher</artifactId>
   <groupId>org.nuxeo.sample</groupId>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="harlan" version="1.0.0">
+  <extension target="org.nuxeo.ecm.core.schema.TypeService" point="schema">
+    <schema name="customdocument" prefix="cd" src="data/schemas/customdocument.xsd"/>
+    <schema name="referenceddocument" prefix="rd" src="data/schemas/referenceddocument.xsd"/>
+  </extension>
+  <extension target="org.nuxeo.ecm.core.schema.TypeService" point="doctype">
+    <doctype name="CustomDocument" extends="Document">
+      <schema name="customdocument"/>
+      <schema name="dublincore"/>
+      <schema name="common"/>
+      <schema name="uid"/>
+    </doctype>
+    <doctype name="ReferencedDocument" extends="Document">
+      <schema name="referenceddocument"/>
+      <schema name="dublincore"/>
+      <schema name="common"/>
+      <schema name="uid"/>
+    </doctype>
+  </extension>
+</component>
