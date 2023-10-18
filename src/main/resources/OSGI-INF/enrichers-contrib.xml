@@ -3,4 +3,8 @@
   <extension target="org.nuxeo.ecm.core.io.MarshallerRegistry" point="marshallers">
     <register class="org.nuxeo.sample.enrichers.SampleDocEnricher" enable="true" />
   </extension>
+  <require>org.nuxeo.web.ui.properties.contrib</require>
+  <extension target="org.nuxeo.runtime.ConfigurationService" point="configuration">
+    <property name="org.nuxeo.web.ui.enrichers.document">blobInMoreThanOneDocument</property>
+  </extension>
 </component>
